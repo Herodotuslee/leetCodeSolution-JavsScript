@@ -14,3 +14,35 @@ var re= function(nums) {
     }
     return ++count;
 };
+
+
+var removeDuplicates = function(nums) {
+    var dup_count = 0;
+    var prev = '';
+    var len = nums.length;
+    var index = 0;
+
+    while (index < len) {
+        if (dup_count >= 2 && nums[index] == prev) {
+            nums.splice(index, 1);
+            len -= 1;
+            continue;
+        }
+
+        if (prev == nums[index]) {
+            dup_count += 1;
+        } else {
+            prev = nums[index];
+            dup_count = 1;
+        }
+    console.log(nums)
+        index += 1
+    }
+
+
+    return nums.length
+
+};
+
+
+removeDuplicates([0,0,1,1,1,1,2,3,3])
